@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 
-const ReportSchema = new mongoose.Schema({
+const reportSchema = new mongoose.Schema({
   campaignId: { type: mongoose.Schema.Types.ObjectId, ref: 'Campaign' },
   contactId: { type: mongoose.Schema.Types.ObjectId, ref: 'Contact' },
-  status: { type: String, required: true }, 
-  deliveryTime: { type: Date, default: Date.now },
+  phoneNumber: String,
+  status: String,
+  messageSid: String,
+  error: String,
 });
 
-module.exports = mongoose.model('Report', ReportSchema);
+module.exports = mongoose.model('Report', reportSchema);

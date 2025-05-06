@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
 
-const CampaignSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  message: { type: String, required: true },
-  sendDate: { type: Date, default: Date.now },
-  status: { type: String, default: 'Pending' }, 
+const campaignSchema = new mongoose.Schema({
+  name: String,
+  message: String,
   recipients: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Contact' }],
-  groupIds: {type : [String]}
+  status: { type: String, default: 'Pending' },
+  sendDate: Date
 });
 
-module.exports = mongoose.model('Campaign', CampaignSchema);
+module.exports = mongoose.model('Campaign', campaignSchema);
